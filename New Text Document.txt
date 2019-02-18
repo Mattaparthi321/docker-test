@@ -1,0 +1,48 @@
+---
+
+  - name: Remove Existing Nginx Folder in /tmp
+    command: 'rm -rf /tmp/nginx'
+
+  - name: Download files from GitHub
+    command: 'git clone https://github.com/mavrick202/dockertest1.git /tmp/nginx'
+
+  - name: Copy the files to index destination folder.
+    copy: >
+            src=/tmp/nginx/index.html
+            dest=/var/www/html/index.nginx-debian.html
+            owner=root
+            group=root
+            mode=0644
+  - name: Copy the style files to  destination folder.
+    copy: >
+            src=/tmp/nginx/style.css
+            dest=/var/www/html/style.css
+            owner=root
+            group=root
+            mode=0644
+  - name: Copy the javascript files to  destination folder.
+    copy: >
+            src=/tmp/nginx/scorekeeper.js
+            dest=/var/www/html/scorekeeper.js
+            owner=root
+            group=root
+            mode=0644
+
+git clone https://github.com/mavrick202/dockertest1.git /tmp/
+
+---
+  - name: Create a set of users
+    user:
+       name: "{{ item }}"
+       state: present
+       shell: /bin/bash
+       home: /home/"{{ item }}"
+    with_items:
+        - Testuser1
+        - Testuser2
+        - Testuser3
+        - Testuser4
+        - Testuser5
+        - Testuser6
+
+
