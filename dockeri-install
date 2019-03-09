@@ -21,3 +21,33 @@ sudo add-apt-repository \
  sudo apt-get install docker-ce docker-ce-cli containerd.io
 
 Sudo docker --verison
+NETWORKING:-
+$ docker network -ls
+docker-networks
+Bridige
+host
+none        
+doccker user defind networks 
+ web-network
+ app-netwok
+DB-network
+
+docker network create --driver=bridge --subnet=172.20.1.0/24 --gateway=172.20.1.254 web-network
+docker network create --driver=bridge --subnet=172.20.2.0/24 --gateway=172.20.2.254 app-netwok
+docker network create --driver=bridge --subnet=172.20.3.0/24 --gateway=172.20.3.254 DB-network
+--------------------------------------------------------------------------------------------------
+Run services 
+---------------------------------------------------------------------------------------------------
+doeker run --rm -dit --network web-network --name webserver1 --hostname webserver1 -p 8080:80 mattaparthi321/ubuntu1:16.04v1 
+
+doeker run --rm -dit --network web-network --name webserver2 --hostname webserver2 -p 8081:80 mattaparthi321/ubuntu1:16.04v1 
+================================================================================================================================
+connect N/W
+connecte n/w
+
+docker network connect app-network webserver1
+--------------------------------------
+one n/w can attach two containers yes
+--------------------------------------
+docker stop $(docker ps-aq)  to stop all container 
+--------------------------------------------------
