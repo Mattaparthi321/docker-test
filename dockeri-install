@@ -43,7 +43,6 @@ doeker run --rm -dit --network web-network --name webserver1 --hostname webserve
 doeker run --rm -dit --network web-network --name webserver2 --hostname webserver2 -p 8081:80 mattaparthi321/ubuntu1:16.04v1 
 ================================================================================================================================
 connect N/W
-connecte n/w
 
 docker network connect app-network webserver1
 --------------------------------------
@@ -51,3 +50,10 @@ one n/w can attach two containers yes
 --------------------------------------
 docker stop $(docker ps-aq)  to stop all container 
 --------------------------------------------------
+folder mount
+---------------------------------------------------
+docker run --rm -it -v /localtestfolder:/conternertestfolerder -p 8000:80 containername:16.04 /bin/bash
+------------------------------------------------------------------------------------------------
+docker network ls 
+docker network prune  ---> remove unused network means n/w not used atleast on container
+--------------------------------------------------------------------------------------------------
