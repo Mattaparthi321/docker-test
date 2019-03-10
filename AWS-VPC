@@ -1,0 +1,18 @@
+1.Deciden on vpc name and create a new vpc, for example VPC name="TMoblies" and IP Address Space we are going to use 10.4.0.0/16
+
+Enable DNS Hostnames
+
+2.Crate three subnets in "TMoblies" .Enable automatic IP Assignment 
+
+	TMoblies-subnet1 10.4.1.0/24
+	TMoblies-subnet2 10.4.2.0/24
+	TMoblies-subnet3 10.4.3.0/24
+
+3.Crate internet GATEWAY and attach it to VPC . IGW name TMoblies-IGW.
+
+4.	crate new routing table for TMoblies and asssosiate subnets to it 
+	ignore the default routing table
+5.	Add routes in the routing table towords Internet Gateway
+6.	crate a security group lllllll and allow all in bound ports
+7.	create a key pair which create public and private keys . Aws will have public key and you will be given private key .we need to use the private key 
+	to login the instance
